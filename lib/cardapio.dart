@@ -44,7 +44,7 @@ const List<Map<String, String>> destaques = [
   }
 ];
 
-const List<Object> comidas = [
+const List<Map<String, String>> comidas = [
   {
     "image": "$_imageInitialPath/chicken-tortilla.png",
     "name": "Chicken Tortilla",
@@ -93,7 +93,7 @@ const List<Object> comidas = [
   }
 ];
 
-const List<Object> drinks = [
+const List<Map<String, String>> drinks = [
   {
     "image": "$_imageInitialPath/caipirinha.jpg",
     "name": "Caipirinha",

@@ -31,11 +31,14 @@ class FoodItem extends StatelessWidget {
                     style: const TextStyle(
                         fontSize: 16, fontWeight: FontWeight.w500),
                   ),
+                  const SizedBox(height: 8),
                   Text('R\$ $itemPrice'),
                 ],
               ),
             ),
             Image(
+              height: 80,
+              width: 100,
               image: AssetImage(imageURI),
               fit: BoxFit.cover,
             ),
