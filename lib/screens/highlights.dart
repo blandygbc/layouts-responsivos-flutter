@@ -8,23 +8,34 @@ class Highlights extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(''),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: ListView.builder(
-          itemCount: items.length,
-          itemBuilder: (context, index) {
-            return HighlightItem(
-              imageURI: items[index]['image'] ?? '',
-              itemTitle: items[index]['title'] ?? '',
-              itemPrice: items[index]['price'] ?? '',
-              itemDescription: items[index]['description'] ?? '',
-            );
-          },
-        ),
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
+      child: CustomScrollView(
+        slivers: [
+          const SliverToBoxAdapter(
+            child: Padding(
+              padding: EdgeInsets.only(bottom: 16.0),
+              child: Text(
+                'Destaques',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontFamily: "Caveat",
+                  fontSize: 32,
+                ),
+              ),
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildBuilderDelegate((context, index) {
+              return HighlightItem(
+                imageURI: items[index]['image'] ?? '',
+                itemTitle: items[index]['title'] ?? '',
+                itemPrice: items[index]['price'] ?? '',
+                itemDescription: items[index]['description'] ?? '',
+              );
+            }, childCount: items.length),
+          ),
+        ],
       ),
     );
   }
