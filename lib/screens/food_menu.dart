@@ -3,7 +3,6 @@ import 'package:panucci_ristorante/cardapio.dart';
 import 'package:panucci_ristorante/components/food_item.dart';
 
 class FoodMenu extends StatelessWidget {
-  final items = comidas;
   const FoodMenu({super.key});
 
   @override
@@ -27,12 +26,13 @@ class FoodMenu extends StatelessWidget {
           ),
           SliverList(
             delegate: SliverChildBuilderDelegate((context, index) {
+              final food = comidas[index];
               return FoodItem(
-                imageURI: items[index]['image'] ?? '',
-                itemTitle: items[index]['name'] ?? '',
-                itemPrice: items[index]['price'] ?? '',
+                imageURI: food['image'] ?? '',
+                itemTitle: food['name'] ?? '',
+                itemPrice: food['price'] ?? '',
               );
-            }, childCount: items.length),
+            }, childCount: comidas.length),
           ),
         ],
       ),

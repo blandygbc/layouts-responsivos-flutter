@@ -20,6 +20,8 @@ class DrinkItem extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Image(
+            height: 90,
+            width: double.maxFinite,
             image: AssetImage(imageURI),
             fit: BoxFit.cover,
           ),
@@ -30,8 +32,12 @@ class DrinkItem extends StatelessWidget {
               children: [
                 Text(
                   itemTitle,
-                  style: const TextStyle(fontSize: 16),
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
+                const SizedBox(height: 10),
                 Text('R\$ $itemPrice'),
               ],
             ),

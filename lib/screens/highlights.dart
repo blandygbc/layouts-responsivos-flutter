@@ -3,7 +3,6 @@ import 'package:panucci_ristorante/cardapio.dart';
 import 'package:panucci_ristorante/components/highlight_item.dart';
 
 class Highlights extends StatelessWidget {
-  final items = destaques;
   const Highlights({super.key});
 
   @override
@@ -27,13 +26,14 @@ class Highlights extends StatelessWidget {
           ),
           SliverList(
             delegate: SliverChildBuilderDelegate((context, index) {
+              final destaque = destaques[index];
               return HighlightItem(
-                imageURI: items[index]['image'] ?? '',
-                itemTitle: items[index]['title'] ?? '',
-                itemPrice: items[index]['price'] ?? '',
-                itemDescription: items[index]['description'] ?? '',
+                imageURI: destaque['image'] ?? '',
+                itemTitle: destaque['title'] ?? '',
+                itemPrice: destaque['price'] ?? '',
+                itemDescription: destaque['description'] ?? '',
               );
-            }, childCount: items.length),
+            }, childCount: destaques.length),
           ),
         ],
       ),
