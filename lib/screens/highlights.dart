@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:panucci_ristorante/cardapio.dart';
-import 'package:panucci_ristorante/components/highlight_item.dart';
+import 'package:panucci_ristorante/components/landscape_highlights.dart';
+import 'package:panucci_ristorante/components/portrait_highlights.dart';
 
 class Highlights extends StatelessWidget {
   const Highlights({super.key});
@@ -24,17 +24,11 @@ class Highlights extends StatelessWidget {
               ),
             ),
           ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate((context, index) {
-              final destaque = destaques[index];
-              return HighlightItem(
-                imageURI: destaque['image'] ?? '',
-                itemTitle: destaque['title'] ?? '',
-                itemPrice: destaque['price'] ?? '',
-                itemDescription: destaque['description'] ?? '',
-              );
-            }, childCount: destaques.length),
-          ),
+          Visibility(
+            visible: MediaQuery.of(context).orientation == Orientation.portrait,
+            replacement: const LandscapeHighlights(),
+            child: const PortraitHighlights(),
+          )
         ],
       ),
     );
