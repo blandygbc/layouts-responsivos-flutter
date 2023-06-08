@@ -136,7 +136,7 @@ const List<Map<String, String>> drinks = [
   }
 ];
 
-const List<Object> pedido = [
+const List<Map<String, String>> pedido = [
   {
     "image": "$_imageInitialPath/chicken-salad.png",
     "name": "Chicken Salad",
